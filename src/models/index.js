@@ -1,9 +1,17 @@
 const mongoose = require('mongoose');
 const env = process.env.NODE_ENV ?? 'development';
 const config = require('./../config/db')[env];
-
+/*
 mongoose
   .connect(`mongodb://${config.HOST}:${config.PORT}/${config.DB_NAME}`)
+  .then((data) => console.log('Connection success'))
+  .catch((err) => console.log('Connection error', err));
+*/
+mongoose
+  .connect(`mongodb://${config.HOST}/${config.DB_NAME}`, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then((data) => console.log('Connection success'))
   .catch((err) => console.log('Connection error', err));
 
