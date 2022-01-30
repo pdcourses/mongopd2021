@@ -8,4 +8,5 @@ mongoose
   .catch((err) => console.log('Connection error', err));
 
 // экспорт моделей
-module.exports.User = require('/user');
+module.exports.User = require('./user');
+module.exports.Post = require('./post');
